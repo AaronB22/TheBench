@@ -7,7 +7,7 @@ CREATE TABLE user (
     username VARCHAR(15),
     password VARCHAR(20)
 );
-use bench_dev;
+
 CREATE TABLE orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     dateTime VARCHAR(200),
@@ -15,7 +15,7 @@ CREATE TABLE orders (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
-use bench_dev;
+
 CREATE TABLE products (
     ProductID int PRIMARY KEY,
     name varchar(255),
