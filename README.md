@@ -24,4 +24,4 @@ To setup the project, you'll need to cd into each directory and, in separate ter
 
 Then, once both directories have had the necessary packages installed, run `npm run dev` to start the app.
 
-Now, when you go to <a href="http://localhost:8000">`localhost:8000`</a> in your browser. You'll be able to specify an html page.
+Once the app is started, go to <a href="http://localhost:8001">`localhost:8001`</a> in your browser.
