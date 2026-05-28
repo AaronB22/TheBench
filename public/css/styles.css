@@ -4,15 +4,25 @@
 }
 
 body {
-    background-color:grey;
+    background-color:lightgray;
 }
 
 header{
+    display: flex;
+    flex-direction: row;
     margin: 1rem;
+    justify-content: space-between;
 
     h1{
+        display: block;
         justify-self: center;
         padding: 1rem;
+    }
+
+    img{
+        height: 5rem;
+        width: auto;
+
     }
 }
 
@@ -21,6 +31,7 @@ ul{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: white;
     
 }
 
