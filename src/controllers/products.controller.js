@@ -1,4 +1,4 @@
-import { findAllProducts } from "../services/bench.service.js";
+import { findAllProducts, findProductById } from "../services/bench.service.js";
 
 
 export const getAllProducts=async(req,res)=>{
@@ -11,9 +11,12 @@ export const getAllProducts=async(req,res)=>{
     }
 }
 
-export const getProduct=(req,res)=>{
+export const getProduct=async(req,res)=>{
+    console.log(req.params.id);
     try{
         const id= req.params.id;
+        const result= await findProductById(id);
+        res.status(201).json(result);
     }
     catch{
         res.status(500).json({ message: 'Server failed :(' })
