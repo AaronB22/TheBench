@@ -22,7 +22,7 @@ INSERT INTO users (username, password) VALUES
 ('bscott', 'Training3');
 
 -- PRODUCTS (20 entries)
-INSERT INTO products (ProductID, name, price, type) VALUES
+INSERT INTO products (id, name, price, type) VALUES
 (1, 'Jump Rope Basic', 7.99, 'Cardio'),
 (2, 'Resistance Band Set', 12.99, 'Strength'),
 (3, 'Yoga Mat Standard', 14.99, 'Fitness'),
@@ -45,7 +45,7 @@ INSERT INTO products (ProductID, name, price, type) VALUES
 (20, 'Fitness Tracker Basic', 39.99, 'Electronics');
 
 -- ORDERS (20 entries)
-INSERT INTO orders (dateTime, address, user_id) VALUES
+INSERT INTO orders (date_time, address, user_id) VALUES
 ('2025-01-05 09:15:00', '125 Oak Street, Denver, CO', 1),
 ('2025-01-07 14:22:00', '88 Maple Ave, Austin, TX', 2),
 ('2025-01-10 11:45:00', '421 Cedar Rd, Phoenix, AZ', 3),
