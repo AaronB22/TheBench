@@ -2,7 +2,7 @@
 
 export const getAllProducts=(res,req)=>{
     try{
-
+        
     }
     catch{
         res.status(500).json({message:'Server failed :('})

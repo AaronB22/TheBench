@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS bench_dev;
 create database bench_dev;
 
 use bench_dev;
@@ -13,7 +14,7 @@ CREATE TABLE orders (
     dateTime VARCHAR(200),
     adress VARCHAR(200),
     user_id INT,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
 CREATE TABLE products (

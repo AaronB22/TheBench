@@ -5,8 +5,9 @@ const router = Router();
 router.get("/", (req, res) => {
     res.render("home");
 });
-//get all products
-router.get('/products');
+//go to product page
+router.get('/products',(req,res)=>{
+    res.render('product.ejs');
+});
 
-router.get('/product:id');
 export default router;
