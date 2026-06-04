@@ -10,7 +10,7 @@ services:
     volumes:
       - ./mysql_data:/var/lib/mysql
     ports:
-      - "${DB_PORT}:3306" # Host port 3307 -> container port 3306
+      - "${DB_PORT}:3307" # Host port 3307 -> container port 3306
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
@@ -21,4 +21,4 @@ services:
       PMA_HOST: db # Access mysql on "db" container
       PMA_PORT: 3306 # Use the container port
     ports:
-      - "8080:80" # Access phpMyAdmin at http://localhost:8080
+      - "8081:80" # Access phpMyAdmin at http://localhost:8081

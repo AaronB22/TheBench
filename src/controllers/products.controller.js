@@ -2,7 +2,7 @@
 
 export const getAllProducts=(res,req)=>{
     try{
-        
+        console.log("test")
     }
     catch{
         res.status(500).json({message:'Server failed :('})
@@ -14,15 +14,6 @@ export const getProduct=(req,res)=>{
         const id= req.params.id;
     }
     catch{
-
-    }
-}
-
-export const logIn=(req,res)=>{
-    try{
-
-    }
-    catch{
-        
+        res.status(500).json({ message: 'Server failed :(' })
     }
 }
