@@ -3,8 +3,16 @@ import db from '../db/db.js';
 
 export const findProductById = async (id) => {
     const [results] = await db.query(
-        "SELECT name, price, type FROM products WHERE ? = id",
+        "SELECT name, price, type FROM products WHERE ? = ProductID",
         [id]
+    );
+    return results[0];
+};
+
+export const findProductByPrice = async (minPrice = 0,maxPrice = 0) => {
+    const [results] = await db.query(
+        "SELECT name, price, type FROM products WHERE price > ? AND price < ?",
+        [minPrice,maxPrice]
     );
     return results[0];
 };
