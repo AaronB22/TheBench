@@ -21,5 +21,5 @@ export const findAllProducts = async () => {
     const [results] = await db.query(
         "SELECT name, price, type FROM products"
     );
-    return results[0];
+    return results;
 };
