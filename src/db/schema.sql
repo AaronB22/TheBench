@@ -17,6 +17,7 @@ CREATE TABLE orders (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+-- ProductID should probably just be ID, I've messed up multiple queries due to this inconsistency
 CREATE TABLE products (
     ProductID int PRIMARY KEY,
     name varchar(255),
