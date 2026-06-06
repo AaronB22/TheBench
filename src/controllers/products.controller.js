@@ -1,13 +1,23 @@
 import { findAllProducts, findProductById} from "../services/bench.service.js";
 
 
+// eslint-disable-next-line consistent-return
 export const getAllProducts=async(req,res)=>{
     try{
         let results = await findAllProducts();
-        results= filterProducts(results, req.query)
-        res.status(200).json(results);
+        results= filterProducts(results, req.query);
+        if(req.query.search){
+            results= searchProduct(results, req.query.search);
+            if(results[0]===''||!results[0]){
+               return res.status(404).json({
+                    message:`Products with search word ${req.query.search} not found`
+                })
+            }
+        }
+        return res.status(200).json(results);
     }
-    catch{
+    catch(err){
+        console.log(err)
         res.status(500).json({message:'Server failed to get Products'})
     }
 }
@@ -38,7 +48,10 @@ export const getProductByPriceRange=async(req,res)=>{
     }
 }
 
-//helper function for filter, does not need to be exported
+//helper functions, no need to export
+
+
+//filter helper function, returns all products that match filters
 const filterProducts=(data, query)=>{
     const {minPrice,maxPrice}= query;
     if(minPrice){
@@ -50,3 +63,8 @@ const filterProducts=(data, query)=>{
 
     return data;
 }
+//returns products that contain search key word
+const searchProduct=(data,search)=>{
+    data=data.filter(el=>el.name.toLowerCase().includes(search.toLowerCase()))
+    return data;
+};
