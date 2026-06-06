@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { findAllProducts } from "../services/bench.service.js";
+import { findAllProducts } from "../services/products.service.js";
 const router = Router();
 
 router.get('/db', async (req, res) => {
