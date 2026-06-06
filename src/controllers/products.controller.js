@@ -1,13 +1,14 @@
-import { findAllProducts, findProductById, findProductByPrice } from "../services/bench.service.js";
+import { findAllProducts, findProductById} from "../services/bench.service.js";
 
 
 export const getAllProducts=async(req,res)=>{
     try{
-        const results = await findAllProducts();
+        let results = await findAllProducts();
+        results= filterProducts(results, req.query)
         res.status(200).json(results);
     }
     catch{
-        res.status(500).json({message:'Server failed :('})
+        res.status(500).json({message:'Server failed to get Products'})
     }
 }
 
@@ -35,4 +36,17 @@ export const getProductByPriceRange=async(req,res)=>{
     catch{
         res.status(500).json({ message: 'Server failed :(' })
     }
+}
+
+//helper function for filter, does not need to be exported
+const filterProducts=(data, query)=>{
+    const {minPrice,maxPrice}= query;
+    if(minPrice){
+        data= data.filter(el=>el.price>Number(minPrice))
+    }
+    if(maxPrice){
+        data=data.filter(el=>el.price<Number(maxPrice))
+    }
+
+    return data;
 }
