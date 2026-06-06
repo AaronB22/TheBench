@@ -76,4 +76,4 @@ The website will now be running on the port assigned in the .env. If using the t
 
 #### GET `/api/products/:id`
 
-    Proides the data on an individual product.
+    Provides the data on an individual product.
