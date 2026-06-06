@@ -1,4 +1,4 @@
-import { findAllProducts, findProductById} from "../services/bench.service.js";
+import { findAllProducts, findProductById} from "../services/products.service.js";
 
 
 // eslint-disable-next-line consistent-return
