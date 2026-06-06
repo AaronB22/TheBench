@@ -3,7 +3,7 @@ import db from '../db/db.js';
 
 export const findProductById = async (id) => {
     const [results] = await db.query(
-        "SELECT name, price, type FROM products WHERE ? = ProductID",
+        "SELECT name, price, type FROM products WHERE ? = ProductId",
         [id]
     );
     return results[0];

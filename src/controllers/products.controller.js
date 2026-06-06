@@ -29,7 +29,8 @@ export const getProduct=async(req,res)=>{
         const result= await findProductById(id);
         res.status(201).json(result);
     }
-    catch{
+    catch(err){
+        console.log(err)
         res.status(500).json({ message: 'Server failed :(' })
     }
 }
