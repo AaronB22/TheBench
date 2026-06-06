@@ -20,23 +20,27 @@ export const findProductByPrice = async (minPrice,maxPrice) => {
 export const findAllProducts = async (query) => {
     let sql = "SELECT name, price, type FROM products"
     const params=[];
-    const { minPrice, maxPrice, search } = query;
-    if(minPrice||maxPrice||search) sql+=" WHERE "
+    const { minPrice, maxPrice, search, type } = query;
+    if(minPrice||maxPrice||search||type) sql+=" WHERE "
     if(minPrice) {
         params.push(minPrice);
         sql+='price>? ';
-        if(maxPrice||search)sql+='AND '
+        if(maxPrice||search||type)sql+='AND '
     }
     if(maxPrice) {
         params.push(maxPrice);
         sql+= 'price<? ';
-        if (search) sql += 'AND '
+        if (search||type) sql += 'AND '
     }
     if(search){ 
         params.push(`%${search}%`)
         sql += 'name LIKE ?';
+        if(type)sql += 'AND '
     }
-    console.log(sql);
+    if(type){
+        params.push(type);
+        sql+= 'type = ?';
+    }
     const [results] = await db.query(sql,params);
     return results;
 };
