@@ -22,7 +22,7 @@ INSERT INTO users (username, password) VALUES
 ('bscott', 'Training3');
 
 -- PRODUCTS (20 entries)
-INSERT INTO products (id, name, price, type) VALUES
+INSERT INTO products (ProductId, name, price, type) VALUES
 (1, 'Jump Rope Basic', 7.99, 'Cardio'),
 (2, 'Resistance Band Set', 12.99, 'Strength'),
 (3, 'Yoga Mat Standard', 14.99, 'Fitness'),
