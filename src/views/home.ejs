@@ -16,18 +16,7 @@
       <!-- <h1>We sell inexpensive Sports gear for those die-hard fans. This storefront is rendered server-sided and uses a backend database.</h1> -->
     </div>
   </section>
-  <header>
-    <a href="#">
-      <img src="images/logo.png" alt="logo">
-    </a>
-    <nav>
-      <ul>
-        <li><a href="#">All Products</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Register</a></li>
-      </ul>
-    </nav>
-  </header>
+    <%- include('partials/header') %>
 
   <main>
     <!-- <section id="introduction">
@@ -35,26 +24,36 @@
       <p>We sell inexpensive Sports gear for those die-hard fans. This storefront is rendered server-sided and uses a backend database.</p>
     </section> -->
     <section id="category">
-      <div class="type">
-        <img src="/images/baseball-frontpage.jpg">
-        <!-- <p>Baseball</p> -->
-      </div>
-      <div class="type">
-        <img src="/images/football-frontpage.jpg">
-        <!-- <p>Football</p> -->
-      </div>
-      <div class="type">
-        <img src="/images/basketball-frontpage.jpg">
-        <!-- <p>Basketball</p> -->
-      </div>
-      <div class="type">
-        <img src="images/hockey-frontpage.jpg">
-        <!-- <p>Hockey</p> -->
-      </div>
-      <div class="type">
-        <img src="/images/soccer-frontpage.jpg">
-        <!-- <p>Soccer</p> -->
-      </div>
+      <a href="#">
+        <div class="category">
+          <img src="/images/football.png">
+          <p>Football</p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="category">
+          <img src="/images/basketball.png">
+          <p>Basketball</p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="category">
+          <img src="/images/baseball.png">
+          <p>Baseball</p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="category">
+          <img src="images/hockey.png">
+          <p>Hockey</p>
+        </div>
+      </a>
+      <a href="#">
+        <div class="category">
+          <img src="/images/soccer.png">
+          <p>Soccer</p>
+        </div>
+      </a>
     </section>
   </main>
 </body>
