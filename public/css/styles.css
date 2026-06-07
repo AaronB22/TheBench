@@ -33,9 +33,6 @@ header{
     img{
         height: 4rem;
         width: auto;
-        &:hover{
-            height: 4.1rem;
-        }
     }
     nav{
         margin: auto 0;
@@ -62,6 +59,9 @@ a{
     &:hover{
         color: grey;
         font-weight: bold;
+        img{
+            border: 1px lightgray solid;
+        }
     }
 }
 
@@ -96,7 +96,7 @@ main{
         width: 100%;
         height: auto;
         max-height: 250px;  
-        object-fit: cover;  
+        object-fit: cover; 
     }
     flex: 1 1 250px;
     max-width: 300px; 
