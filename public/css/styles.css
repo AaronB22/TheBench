@@ -6,6 +6,8 @@
 
 body {
     background-color:lightgray;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 header{
@@ -52,8 +54,10 @@ a{
 
 
 main{
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
+
 }
 
 #introduction{
@@ -76,3 +80,15 @@ main{
     border: 1px grey dashed;
     border-radius: 1rem;
 }
+
+.type img {
+    width: 100%;
+    height: auto;
+    max-height: 250px;  
+    object-fit: cover;  
+}
+
+.type {
+    flex: 1 1 250px;
+    max-width: 300px; 
+   }
