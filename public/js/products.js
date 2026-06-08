@@ -1,13 +1,16 @@
 //use this url var to add query strings for filter and search;
-let url='/products'
+let url='/api/products'
 //gets all data, backend handles filtering and search
 const fetchProducts=async()=>{
-    const res=fetch(url);
-    const data= await res.json();
+    const res=await fetch(url);
 
+    const data= await res.json();
+    
     data.forEach(element => {
-        document.getElementById('items').appendChild(
-            document.createElement('div').textContent = item.name
-        )
+        const div = document.createElement('div');
+        div.textContent = element.name;
+        document.getElementById('items').appendChild(div);
     });
 }
+
+fetchProducts();
