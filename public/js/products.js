@@ -5,4 +5,9 @@ const fetchProducts=async()=>{
     const res=fetch(url);
     const data= await res.json();
 
+    data.forEach(element => {
+        document.getElementById('items').appendChild(
+            document.createElement('div').textContent = item.name
+        )
+    });
 }
