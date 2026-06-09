@@ -6,14 +6,31 @@
 #filterSection{
     margin-right: 5rem;
     width: 25%;
+    display: flex;
+    flex-direction: column;
     h2{
         text-align: center;
         border-bottom: 1px solid black;
         margin-bottom: 40px;
     }
+    button{
+        width:80%;
+        height: 1.5rem;
+        font-size: 1rem;
+        background-color: darkgrey;
+        border: solid 1px black;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+#priceContext{
+    margin-left: auto;
+    margin-right: auto;
 }
 #priceLabel{
-    text-align: center;
+    display: block;
+
     margin-top: 20px;
     font-weight: 600;
 }

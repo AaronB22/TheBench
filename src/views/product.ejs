@@ -14,11 +14,15 @@
   <section id="productSection">
     <section id="filterSection">
       <h2>Filters</h2>
-      <label id="priceLabel">Price</label>
-      <div id="priceRange">
-        <input type="number">
-        <div id="priceDash"> to </div>
-        <input>
+      <button> Apply Filters</button>
+      <div id="priceContext">
+        <label id="priceLabel">Price</label>
+        <div id="priceRange">
+          <input id='minPrice'type="number" value="0">
+          <div id="priceDash"> to </div>
+          <input id="maxPrice" value="10000">
+        </div>
+
       </div>
     
     </section>

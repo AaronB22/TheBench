@@ -14,3 +14,17 @@ const fetchProducts=async()=>{
 }
 
 fetchProducts();
+
+
+//filters
+const minPrice= document.querySelector('#minPrice');
+const maxPrice= document.querySelector('#maxPrice');
+
+const applyFilters=(filterType, filterValue)=>{
+    console.log("changing values")
+    url+=`${filterType}=${filterValue}`
+    
+}
+
+minPrice.addEventListener('change', ()=> applyFilters("minPrice", minPrice.value));
+maxPrice.addEventListener('change', () => applyFilters("maxPrice", maxPrice.value))
