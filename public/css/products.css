@@ -5,13 +5,12 @@
 }
 #filterSection{
     margin-right: 5rem;
-    width: 25%;
+    width: 10%;
     display: flex;
     flex-direction: column;
     h2{
-        text-align: center;
         border-bottom: 1px solid black;
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
     button{
         width:80%;
@@ -20,23 +19,20 @@
         background-color: darkgrey;
         border: solid 1px black;
         border-radius: 5px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
+
 #priceContext{
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px;
 }
 #priceLabel{
     display: block;
 
-    margin-top: 20px;
     font-weight: 600;
 }
 #priceRange{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 80%;
     input{
         height: 24px;
