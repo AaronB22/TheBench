@@ -5,11 +5,12 @@ const fetchProducts=async()=>{
     const res=await fetch(url);
 
     const data= await res.json();
-    
+    const itemsSection = document.getElementById('items');
+    itemsSection.replaceChildren();
     data.forEach(element => {
         const div = document.createElement('div');
         div.textContent = element.name;
-        document.getElementById('items').appendChild(div);
+        itemsSection.appendChild(div);
     });
 }
 
@@ -19,12 +20,12 @@ fetchProducts();
 //filters
 const minPrice= document.querySelector('#minPrice');
 const maxPrice= document.querySelector('#maxPrice');
-
-const applyFilters=(filterType, filterValue)=>{
+const filterBtn= document.querySelector('#filterBtn');
+const applyFilters=()=>{
     console.log("changing values")
-    url+=`${filterType}=${filterValue}`
+    url=`/api/products?minPrice=${minPrice.value}&maxPrice=${maxPrice.value}`;
+    fetchProducts();
     
 }
+filterBtn.addEventListener('click',applyFilters);
 
-minPrice.addEventListener('change', ()=> applyFilters("minPrice", minPrice.value));
-maxPrice.addEventListener('change', () => applyFilters("maxPrice", maxPrice.value))
