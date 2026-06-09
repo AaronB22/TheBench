@@ -1,0 +1,13 @@
+#productSection{
+
+    display: flex;
+    flex-direction: row;
+}
+#filterSection{
+    margin-right: 5rem;
+    width: 25%;
+    h2{
+        text-align: center;
+        border-bottom: 1px solid black;
+    }
+}
