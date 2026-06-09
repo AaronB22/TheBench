@@ -11,9 +11,25 @@ const fetchProducts=async()=>{
     itemsSection.replaceChildren();
     let maxItemPrice=0;
     data.forEach(element => {
+        const anchor = document.createElement('a');
         const div = document.createElement('div');
-        div.textContent = element.name;
-        itemsSection.appendChild(div);
+        const img = document.createElement('img');
+        const h4 = document.createElement('h4');
+        const p = document.createElement('p');
+
+        img.alt = "photo";
+        div.appendChild(img);
+
+        h4.textContent = element.name;
+        div.appendChild(h4);
+
+        p.textContent = "$"+element.price;
+        div.appendChild(p);
+
+        anchor.href = "#";
+        anchor.appendChild(div);
+
+        itemsSection.appendChild(anchor);
     });
 
 }
