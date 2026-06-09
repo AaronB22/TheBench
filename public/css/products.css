@@ -9,5 +9,27 @@
     h2{
         text-align: center;
         border-bottom: 1px solid black;
+        margin-bottom: 40px;
     }
+}
+#priceLabel{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 600;
+}
+#priceRange{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    input{
+        height: 24px;
+        background-color: rgb(187, 187, 187);
+        border: solid 1px black;
+        border-radius: 5px;
+    }
+}
+#priceDash{
+    margin-left: 10px;
+    margin-right: 10px;
+
 }
