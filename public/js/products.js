@@ -1,5 +1,14 @@
+//Get the type category from URL query params
+const params = new URLSearchParams(window.location.search);
+const selectedType = params.get('type');
+
 //use this url var to add query strings for filter and search;
 let url='/api/products'
+
+// Add type parameter if it exists in the URL
+if (selectedType) {
+    url += `?type=${selectedType}`;
+}
 
 
 //gets all data, backend handles filtering and search
@@ -41,10 +50,25 @@ fetchProducts();
 const minPrice= document.querySelector('#minPrice');
 const maxPrice= document.querySelector('#maxPrice');
 const filterBtn= document.querySelector('#filterBtn');
-const applyFilters=()=>{
-    url=`/api/products?minPrice=${minPrice.value}&maxPrice=${maxPrice.value}`;
+
+const applyFilters = () => {
+    let filterUrl = '/api/products?';
+    
+    // Add type if it exists
+    if (selectedType) {
+        filterUrl += `type=${selectedType}&`;
+    }
+    
+    // Add price filters
+    filterUrl += `minPrice=${minPrice.value}&maxPrice=${maxPrice.value}`;
+    
+    url = filterUrl;
     fetchProducts();
     
+}
+const applyFilters=()=>{
+    url=`/api/products?minPrice=${minPrice.value}&maxPrice=${maxPrice.value}`;
+    fetchProducts(); 
 }
 filterBtn.addEventListener('click',applyFilters);
 
