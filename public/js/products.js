@@ -66,10 +66,6 @@ const applyFilters = () => {
     fetchProducts();
     
 }
-const applyFilters=()=>{
-    url=`/api/products?minPrice=${minPrice.value}&maxPrice=${maxPrice.value}`;
-    fetchProducts(); 
-}
 filterBtn.addEventListener('click',applyFilters);
 
 const validateInputs=()=>{
