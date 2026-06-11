@@ -2,6 +2,7 @@ import express from 'express';
 import defaultRouter from './routers/render.routes.js';
 import productsRouter from './routers/products.routes.js';
 import testRouter from './routers/test.routes.js';
+import session from 'express-session';
 
 //configure Express.js app
 const app = express();
@@ -12,6 +13,16 @@ app.set("views", "src/views");
 
 //static directories
 app.use(express.static('public'));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        maxAge: 24 * 60 * 60 * 1000
+    }
+}))
 
 //middleware
 app.use(express.json());
