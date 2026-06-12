@@ -35,7 +35,7 @@ const fetchProducts=async()=>{
         p.textContent = "$"+element.price;
         div.appendChild(p);
 
-        anchor.href = "#";
+        anchor.href = "/products/"+element.id;
         anchor.appendChild(div);
 
         itemsSection.appendChild(anchor);
