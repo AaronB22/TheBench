@@ -19,7 +19,7 @@ CREATE TABLE orders (
 
 -- ProductID should probably just be ID, I've messed up multiple queries due to this inconsistency
 CREATE TABLE products (
-    ProductID int PRIMARY KEY,
+    ProductId int PRIMARY KEY,
     name varchar(255),
     price decimal(10, 2),
     type varchar(255)
