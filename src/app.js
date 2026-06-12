@@ -1,8 +1,8 @@
 import express from 'express';
 import session from 'express-session';
-import defaultRouter from './routers/render.routes.js';
+import renderRouter from './routers/render.routes.js';
 import productsRouter from './routers/products.routes.js';
-import testRouter from './routers/test.routes.js';
+import userRouter from './routers/user.routes.js';
 
 //configure Express.js app
 const app = express();
@@ -14,7 +14,7 @@ app.set("views", "src/views");
 //static directories
 app.use(express.static('public'));
 
-//middleware
+/** Middleware **/
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -38,9 +38,12 @@ app.use((req, res, next ) => {
     next();
 });
 
-//routers
-app.use("/", defaultRouter);
-app.use("/api/", productsRouter )
-//test routes
-app.use('/test/',testRouter)
+/** Routers **/
+// Front-End Routes
+app.use("/", renderRouter);
+app.use("/", userRouter);
+
+// Back-End Routes
+app.use("/api/", productsRouter);
+
 export default app;

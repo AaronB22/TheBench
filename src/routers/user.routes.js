@@ -1,5 +1,5 @@
 import Router from 'express';
-import { register, login, logout } from '../controllers/user.controllers.js';
+import { register, login, logout } from '../controllers/user.controller.js';
 
 const router = new Router();
 
@@ -14,3 +14,4 @@ router.post("/login", login);
 // Logout
 router.post("/logout", logout);
 
+export default router;

@@ -1,6 +1,6 @@
 import { createUser, findUserByUsername, validatePassword} from '../services/user.service.js';
 
-const register = async (req, res) => {
+export const register = async (req, res) => {
     const { username, password, confirm } = req.body;
     // Validate inputs
     // All fields required
@@ -19,7 +19,7 @@ const register = async (req, res) => {
     return res.redirect("/login");
 }
 
-const login = async (req, res) => {
+export const login = async (req, res) => {
     const { username, password } = req.body;
     // Validate Credentials
     
@@ -41,7 +41,7 @@ const login = async (req, res) => {
 
     // Create a new session
     req.session.user = {
-        userId: user.userId,
+        userId: user.id,
         username: user.username
     }
 
@@ -49,10 +49,9 @@ const login = async (req, res) => {
     return res.redirect("/products")
 };
 
-const logout = (req, res) => {
+export const logout = (req, res) => {
     // Destroy the session
+    console.log(req.session);
     // Redirect to /login
     req.session.destroy(() => res.redirect("/login"));
 };
-
-export default { register, login, logout };
