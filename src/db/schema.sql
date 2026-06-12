@@ -6,7 +6,7 @@ use bench_dev;
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(15),
-    password VARCHAR(20)
+    password VARCHAR(60)
 );
 
 CREATE TABLE orders (
