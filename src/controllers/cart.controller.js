@@ -8,7 +8,7 @@ export const addCart=async(req,res)=>{
         console.log(product);
         if (!req.session.cart) req.session.cart = [];
         req.session.cart.push(product);
-        res.status(200).json({ message: "product added" });
+        res.status(201).json({ message: "product added" });
 
     }
     catch(e){
@@ -16,5 +16,21 @@ export const addCart=async(req,res)=>{
             message:"product not found"
         })
         
+    }
+}
+
+// eslint-disable-next-line consistent-return
+export const deleteCart=(req,res)=>{
+    try{
+        const id=req.body.productId;
+        const cart=req.session.cart;
+        cart.filter(el=>el.id===id);
+        req.session.cart = cart;
+       return res.status(200);
+    }
+    catch(e){
+        res.status(500).json({
+            message: "sever failure"
+        })
     }
 }
