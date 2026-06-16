@@ -36,7 +36,7 @@ export const deleteCart=(req,res)=>{
 }
 
 export const testCart=async(req,res)=>{
-    for(let i=0; i<5;i++){
+    for(let i=1; i<6;i++){
         const product = await findProductById(i);
 
         if (!req.session.cart) req.session.cart = [];
