@@ -5,7 +5,7 @@ export const addCart=async(req,res)=>{
        
         const id=req.body.productId;
         const product = await findProductById(id);
-        console.log(product);
+  
         if (!req.session.cart) req.session.cart = [];
         req.session.cart.push(product);
         res.status(201).json({ message: "product added" });
@@ -33,4 +33,15 @@ export const deleteCart=(req,res)=>{
             message: "sever failure"
         })
     }
+}
+
+export const testCart=async(req,res)=>{
+    for(let i=0; i<5;i++){
+        const product = await findProductById(i);
+
+        if (!req.session.cart) req.session.cart = [];
+        req.session.cart.push(product);
+
+    }
+    res.status(200).json(req.session.cart);
 }
