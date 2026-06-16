@@ -22,4 +22,8 @@ router.get('/login', (req, res) => {
     res.render('login.ejs')
 })
 
+router.get("/cart",(req,res)=>{
+    res.render('cart.ejs')
+})
+
 export default router;
