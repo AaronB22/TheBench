@@ -22,5 +22,6 @@ CREATE TABLE products (
     ProductId int PRIMARY KEY,
     name varchar(255),
     price decimal(10, 2),
-    type varchar(255)
+    type varchar(255),
+    description varchar(255)
 );
