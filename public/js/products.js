@@ -22,6 +22,7 @@ const fetchProducts=async()=>{
         const p = document.createElement('p');
         const btn= document.createElement('button');
 
+        img.src = `/images/products/${element.id}.png`;
         img.alt = "photo";
         div.appendChild(img);
 
