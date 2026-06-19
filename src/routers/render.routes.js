@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { isLoggedIn } from "../controllers/user.controller.js";
 
 const router = Router();
 
@@ -6,11 +7,11 @@ router.get("/", (req, res) => {
     res.render("home");
 });
 //go to product page
-router.get('/products',(req,res)=>{
+router.get('/products', (req,res)=>{
     res.render('product.ejs');
 });
 
-router.get('/products/:id',(req,res)=>{
+router.get('/products/:id', (req,res)=>{
     res.render('item.ejs');
 });
 
@@ -22,7 +23,7 @@ router.get('/login', (req, res) => {
     res.render('login.ejs')
 })
 
-router.get("/cart",(req,res)=>{
+router.get("/cart", isLoggedIn, (req,res)=>{
     res.render('cart.ejs')
 })
 

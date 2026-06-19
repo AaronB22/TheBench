@@ -1,13 +1,14 @@
 import {Router } from "express";
 import { getAllProducts, getProduct} from '../controllers/products.controller.js';
-import { addCart, deleteCart, testCart } from "../controllers/cart.controller.js";
+import { addCart, testCart, deleteCart, } from "../controllers/cart.controller.js";
+import { isLoggedIn } from "../controllers/user.controller.js";
 const router = Router();
 
-router.get("/products",getAllProducts);
-router.get("/products/:id",getProduct);
+router.get("/", getAllProducts);
+router.get("/products/:id", getProduct);
 
-router.post('/cart',addCart);
-router.get('/cart',(req,res)=>{
+router.post('/cart', isLoggedIn, addCart);
+router.get('/cart', isLoggedIn, (req,res)=>{
     res.status(200).json(req.session.cart);
 })
 

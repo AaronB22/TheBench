@@ -38,6 +38,8 @@ DB_NAME=bench_dev
 DB_PORT=3307
 DB_ROOT_PASS=Root_Password
 DB_HOST=localhost
+
+SESSION_SECRET=example_secret
 ```
 
 This app is set up to use a [Docker](https://www.docker.com/resources/what-container/) container. If you're using Docker, then you can create the container.
@@ -59,13 +61,33 @@ The website will now be running on the port assigned in the .env. If using the t
 
     Default route; home.
 
+#### GET `/login`
+
+    Account login page.
+
+#### POST `/login`
+
+    Logs the user into an account.
+
+#### GET `/logout`
+
+    Logs the user out of an existing session.
+
+#### GET `/register`
+
+    Account creation page.
+
+#### POST `/register`
+
+    Creates a new account.
+
 #### GET `/products`
 
-    All products page.
+    All products page. Must be logged in to view
 
 #### GET `/products/:id`
 
-    Individual product page.
+    Individual product page. Must be logged in to view
 
 
 ### API

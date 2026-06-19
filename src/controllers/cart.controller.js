@@ -26,7 +26,7 @@ export const deleteCart=(req,res)=>{
         const cart=req.session.cart;
         cart.filter(el=>el.id===id);
         req.session.cart = cart;
-       return res.status(200).json(req.session.cart);
+       return res.status(200).json(req.session.cart );
     }
     catch(e){
         res.status(500).json({

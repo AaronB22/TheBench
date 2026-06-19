@@ -1,4 +1,4 @@
-import { createUser, findUserByUsername, validatePassword} from '../services/user.service.js';
+import { createUser, findUserByUsername, validatePassword } from '../services/user.service.js';
 
 export const register = async (req, res) => {
     const { username, password, confirm } = req.body;
@@ -54,4 +54,11 @@ export const logout = (req, res) => {
     console.log(req.session);
     // Redirect to /login
     req.session.destroy(() => res.redirect("/login"));
+};
+
+// Authorization Middleware
+
+export const isLoggedIn = (req, res, next) => {
+    if (!req.user) res.redirect("/login"); 
+    else next();
 };
