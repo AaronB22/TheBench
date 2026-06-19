@@ -1,8 +1,24 @@
+const cartSection = document.getElementById("section-cart");
+
 const fetchCart=async()=>{
     const res = await fetch('/api/cart/test')
     const data= await res.json();
-    console.log(data);
-    const cartSection = document.getElementById("section-cart")
+
+   buildCart(data);
+
+}
+
+const deleteItem=async(id)=>{
+    const res = await fetch(`/api/cart/test/${id}`,{
+        method:"delete"
+    })
+    const data = await res.json();
+    console.log(data)
+}
+
+fetchCart();
+
+const buildCart=(data)=>{
     cartSection.innerHTML = '';
     data.forEach(item => {
         cartSection.insertAdjacentHTML('beforeend', `
@@ -14,7 +30,3 @@ const fetchCart=async()=>{
         `);
     });
 }
-
-
-fetchCart();
-
