@@ -82,8 +82,10 @@ const validateInputs=()=>{
     if(minPrice.value<0) minPrice.value=0;
     const min = Number(minPrice.value);
     const max = Number(maxPrice.value);
-    if((max<min)&&(max&&min)) {
-        maxPrice.value=min+1;
+    // Should be validation here for 0, but since 0 is
+    // also null it's either a "both or none" problem.
+    if(max < min && max !== 0) {
+        maxPrice.value = min + 1;
     }
 }
 minPrice.addEventListener('change',validateInputs);
