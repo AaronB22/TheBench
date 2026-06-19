@@ -11,7 +11,7 @@ Server-Side Web Development Project
 
 ## Overview
 
-The Bench is a web-app storefront providing affordable sports gear. This project is intended to demonstrate a full-stack web application. Technologies used in this project include:
+The Bench is a web-app storefront providing affordable sports gear. This project is intended to demonstrate a full-stack web application. Features of this project include:
 
 * Server Side Rendering
 * Express.js
@@ -59,43 +59,111 @@ The website will now be running on the port assigned in the .env. If using the t
 ### Rendered
 #### GET `/`
 
-    Default route; home.
+Default route; home. Public.
 
 #### GET `/login`
 
-    Account login page.
+Account login page. Public.
 
 #### POST `/login`
 
-    Logs the user into an account.
+Logs the user into an account. Public.
+
+```json
+{
+    username: "username",
+    password: "password",
+}
+```
 
 #### GET `/logout`
 
-    Logs the user out of an existing session.
+Logs the user out of an existing session. Private.
 
 #### GET `/register`
 
-    Account creation page.
+Account creation page. Public.
 
 #### POST `/register`
 
-    Creates a new account.
+Creates a new account. Public.
+
+```json
+{
+    username: "username",
+    password: "password",
+    confirm: "password"
+}
+```
 
 #### GET `/products`
 
-    All products page. Must be logged in to view
+All products page. Must be logged in to view; Private
 
 #### GET `/products/:id`
 
-    Individual product page. Must be logged in to view
+Individual product page. Private.
 
 
 ### API
 
+All API routes are protected (private).
+
 #### GET `/api/products`
 
-    Provides the data on all products.
+Provides the data on all products.
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Pro Football Helmet",
+    "price": "149.99",
+    "type": "football"
+  },
+  {
+    "id": 2,
+    "name": "Official NFL Game Ball",
+    "price": "89.99",
+    "type": "football"
+  }
+]
+```
 
 #### GET `/api/products/:id`
 
-    Provides the data on an individual product.
+Provides the data on an individual product.
+
+Example: `/api/products/5`
+```json
+{
+  "id": 5,
+  "name": "Football Gloves",
+  "price": "34.99",
+  "type": "football"
+}
+```
+
+Returns a `404` if the product is not found.
+
+#### GET `/api/cart`
+
+Provides the current session cart
+
+#### POST `/api/cart`
+
+Adds the provided item to the cart
+```json
+{
+    productId: 1
+}
+```
+Returns a `404` if the product is not found.
+
+#### DELETE `/api/cart`
+
+Deletes all contents of the cart
+
+#### DELETE `/api/cart/:id`
+
+Deletes a specific product from the cart
