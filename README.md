@@ -11,7 +11,7 @@ Server-Side Web Development Project
 
 ## Overview
 
-The Bench is a web-app storefront providing affordable sports gear. This project is intended to demonstrate a full-stack web application. Technologies used in this project include:
+The Bench is a web-app storefront providing affordable sports gear. This project is intended to demonstrate a full-stack web application. Features of this project include:
 
 * Server Side Rendering
 * Express.js
