@@ -5,16 +5,16 @@ export const register = async (req, res) => {
     // Validate inputs
     // All fields required
     if (!username || !password || !confirm) {
-        return res.redirect("/register");
+        return res.redirect("/register?error=All Fields Required");
     }
 
     // Passwords dont match
     if (password !== confirm) {
-        return res.redirect("/register");
+        return res.redirect("/register?error=Passwords must match");
     }
 
     if (await findUserByUsername(username)) {
-        return res.redirect("/register");
+        return res.redirect("/register?error=Account already exists");
     }
 
     // Create a new user account

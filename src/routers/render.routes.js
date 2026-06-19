@@ -16,7 +16,10 @@ router.get('/products/:id', isLoggedIn, (req,res)=>{
 });
 
 router.get('/register', (req, res) => {
-    res.render('register.ejs');
+    const errorMessage = req.query.error;
+    res.render('register.ejs', {
+        errorMessage
+    });
 });
 
 router.get('/login', (req, res) => {
