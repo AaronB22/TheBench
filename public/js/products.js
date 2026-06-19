@@ -2,16 +2,9 @@
 
 //Get the type category from URL query params
 const params = new URLSearchParams(window.location.search);
-const selectedType = params.get('type');
 
 //use this url var to add query strings for filter and search;
 let url='/api/products'
-
-// Add type parameter if it exists in the URL
-if (selectedType) {
-    url += `?type=${selectedType}`;
-}
-
 
 //gets all data, backend handles filtering and search
 const fetchProducts=async()=>{
@@ -29,6 +22,7 @@ const fetchProducts=async()=>{
         const p = document.createElement('p');
         const btn= document.createElement('button');
 
+        img.src = `/images/products/${element.id}.png`;
         img.alt = "photo";
         div.appendChild(img);
 
@@ -64,14 +58,15 @@ const filterBtn= document.querySelector('#filterBtn');
 const applyFilters = () => {
     let filterUrl = '/api/products?';
     
+    const category = getSelectedCategory();
     // Add type if it exists
-    if (selectedType) {
-        filterUrl += `type=${selectedType}&`;
+    if (category) {
+        filterUrl += `type=${category}&`;
     }
     
     // Add price filters
     filterUrl += `minPrice=${minPrice.value}&maxPrice=${maxPrice.value}`;
-    
+
     url = filterUrl;
     fetchProducts();
     
@@ -102,4 +97,14 @@ const addToCart=async(e)=>{
         body: JSON.stringify({ productId: id })
     });
 
+}
+
+
+function getSelectedCategory() {
+    if (document.getElementById("football").checked) return "football";
+    if (document.getElementById("basketball").checked) return "basketball";
+    if (document.getElementById("baseball").checked) return "baseball";
+    if (document.getElementById("hockey").checked) return "hockey";
+    if (document.getElementById("soccer").checked) return "soccer";
+    return null;
 }

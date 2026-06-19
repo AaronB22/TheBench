@@ -21,6 +21,7 @@ const fetchItem=async()=>{
     const btn = document.createElement('button');
 
     img.alt = "photo";
+    img.src = `/images/products/${element.id}.png`;
     itemSection.append(img);
 
     h1.textContent = element.name;
