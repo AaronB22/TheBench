@@ -80,8 +80,11 @@ filterBtn.addEventListener('click',applyFilters);
 
 const validateInputs=()=>{
     if(minPrice.value<0) minPrice.value=0;
-    if((maxPrice.value<minPrice.value)&&(maxPrice.value&&minPrice.value)) maxPrice.value=Number(minPrice.value)+1;
-    
+    const min = Number(minPrice.value);
+    const max = Number(maxPrice.value);
+    if((max<min)&&(max&&min)) {
+        maxPrice.value=min+1;
+    }
 }
 minPrice.addEventListener('change',validateInputs);
 maxPrice.addEventListener('change',validateInputs);
