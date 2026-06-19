@@ -23,7 +23,14 @@ router.get('/login', (req, res) => {
     res.render('login.ejs')
 })
 
-router.get("/cart", isLoggedIn, (req,res)=>{
+
+//true route
+// router.get("/cart", isLoggedIn, (req,res)=>{
+//     res.render('cart.ejs')
+// })
+
+//route just for testing
+router.get("/cart", (req, res) => {
     res.render('cart.ejs')
 })
 

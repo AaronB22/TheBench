@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/cart.css">
      <script src="/js/cart.js" defer></script>
     <title>My Cart</title>
 </head>
@@ -11,7 +12,9 @@
     <%- include('partials/header') %>
     <h1>My Cart</h1>
     <section id="section-cart"></section>
-
-    <button>Purchase</button>
+    <div class="purchaseCard">
+        <button>Purchase</button>
+        <h2 id="total"></h2>
+    </div>
 </body>
 </html>
