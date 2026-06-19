@@ -20,7 +20,7 @@ const fetchProducts=async()=>{
     const data= await res.json();
     const itemsSection = document.getElementById('items');
     itemsSection.replaceChildren();
-    let maxItemPrice=0;
+    
     data.forEach(element => {
         const anchor = document.createElement('a');
         const div = document.createElement('div');
@@ -91,14 +91,10 @@ const addToCart=async(e)=>{
     e.preventDefault();
     e.stopPropagation();
     const id = e.currentTarget.dataset.id;
-    const obj={
-        "productId":id
-    }
     const addCart = await fetch("/api/cart", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ productId: id })
     });
 
-    console.log(addCart)
 }
