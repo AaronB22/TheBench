@@ -5,12 +5,16 @@ export const register = async (req, res) => {
     // Validate inputs
     // All fields required
     if (!username || !password || !confirm) {
-        return res.redirect("/register");
+        return res.redirect("/register?error=All Fields Required");
     }
 
-    // Passwords dont' match
+    // Passwords dont match
     if (password !== confirm) {
-        return res.redirect("/register");
+        return res.redirect("/register?error=Passwords must match");
+    }
+
+    if (await findUserByUsername(username)) {
+        return res.redirect("/register?error=Account already exists");
     }
 
     // Create a new user account
@@ -25,18 +29,18 @@ export const login = async (req, res) => {
     
     // All fields required
     if (!username || !password) {
-        res.redirect("/login");
+        return res.redirect("/login?error=All Fields Required");
     }
 
     const user = await findUserByUsername(username);
     // Account does not exist
     if (!user) {
-        return res.redirect("/login");
+        return res.redirect("/login?error=Invalid Credentials");
     }
 
     // Invalid password 
     if (!await validatePassword(password, user.password)) {
-        return res.redirect("/login");
+        return res.redirect("/login?error=Invalid Credentials");
     }
 
     // Create a new session
@@ -59,6 +63,11 @@ export const logout = (req, res) => {
 // Authorization Middleware
 
 export const isLoggedIn = (req, res, next) => {
-    if (!req.user) res.redirect("/login"); 
-    else next();
+    if (!req.user) {
+        if (req.originalUrl.startsWith('/api/'))  {
+            return res.status(401).json({ message: 'Unauthorized' });
+        }
+        return res.redirect("/login"); 
+    }
+    return next();
 };

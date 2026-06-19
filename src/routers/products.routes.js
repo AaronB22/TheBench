@@ -3,7 +3,7 @@ import { getAllProducts, getProduct} from '../controllers/products.controller.js
 import { addCart, testCart, deleteCart, clearCart, } from "../controllers/cart.controller.js";
 import { isLoggedIn } from "../controllers/user.controller.js";
 const router = Router();
-console.log("router")
+
 router.get("/products", getAllProducts);
 router.get("/products/:id", getProduct);
 
