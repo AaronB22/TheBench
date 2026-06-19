@@ -1,0 +1,18 @@
+.featured {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+#featured-items {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.featured-card {
+    border: 1px dashed grey;
+    border-radius: 1rem;
+    padding: 1rem;
+    height: 20rem;
+    width: 250px;
+}
