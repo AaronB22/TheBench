@@ -2,6 +2,7 @@ import express from 'express';
 import session from 'express-session';
 import renderRouter from './routers/render.routes.js';
 import productsRouter from './routers/products.routes.js';
+import cartRouter from './routers/cart.routes.js'
 import userRouter from './routers/user.routes.js';
 
 //configure Express.js app
@@ -51,6 +52,7 @@ app.use("/", renderRouter);
 app.use("/", userRouter);
 
 // Back-End Routes
-app.use("/api/", productsRouter);
+app.use("/api/products", productsRouter);
+app.use("/api/cart", cartRouter);
 
 export default app;
