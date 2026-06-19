@@ -32,7 +32,7 @@ const buildCart = (data) => {
         total+=Number(item.price)
         cartSection.insertAdjacentHTML('beforeend', `
         <div class="cart-card">
-            <div class="cart-img-container"><img src="/images/products/1.png" alt="product"></div>
+            <div class="cart-img-container"><img src="/images/products/${item.type}.png" alt="product"></div>
             <h3>${item.name}</h3>
             <p>$${item.price}</p>
             <button class="remove-btn" data-id="${item.id}" onclick="deleteItem('${item.id}')">Remove</button>
