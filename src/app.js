@@ -29,12 +29,19 @@ app.use(session({
     }
 }))
 
+// Attach session.user to user
 app.use((req, res, next ) => {
     if (req.session.user) {
         req.user = req.session.user;
     } else {
         req.user = null;
     }
+    next();
+});
+
+// Makes user accessible in all rendered pages
+app.use((req, res, next) => {
+    res.locals.user = req.user;
     next();
 });
 
