@@ -6,7 +6,7 @@ export const findProductById = async (id) => {
         "SELECT ProductId as id, name, price, type FROM products WHERE ? = ProductId",
         [id]
     );
-    return results[0];
+    return results[0] || null;
 };
 
 export const findProductByPrice = async (minPrice,maxPrice) => {
