@@ -8,8 +8,8 @@ router.get("/products", getAllProducts);
 router.get("/products/:id", getProduct);
 
 router.post('/cart', addCart);
-router.get('/cart', (req,res)=>{
-    res.status(200).json(req.session.cart);
+router.get('/cart', (req, res) => {
+    res.status(200).json(req.session.cart || []);
 })
 
 router.delete('/cart/:id',deleteCart)

@@ -23,6 +23,11 @@ const buildCart = (data) => {
     let total = 0;
     const cartSection = document.getElementById("section-cart");
     cartSection.innerHTML = '';
+    const btn= document.getElementById("purchaseBtn");
+    if (data.length ==0) {
+        window.location.href = '/products';
+        return;
+    }
     data.forEach(item => {
         total+=Number(item.price)
         cartSection.insertAdjacentHTML('beforeend', `
