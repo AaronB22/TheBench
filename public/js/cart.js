@@ -14,7 +14,7 @@ const deleteItem = async (id) => {
         method: "delete"
     })
     const data = await res.json();
-    console.log(data)
+    buildCart(data);
 }
 
 fetchCart();
