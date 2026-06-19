@@ -44,6 +44,6 @@ app.use("/", renderRouter);
 app.use("/", userRouter);
 
 // Back-End Routes
-app.use("/api/", productsRouter);
+app.use("/api/products", productsRouter);
 
 export default app;
