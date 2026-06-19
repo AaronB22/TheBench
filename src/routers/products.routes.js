@@ -5,7 +5,7 @@ import { isLoggedIn } from "../controllers/user.controller.js";
 const router = Router();
 
 router.get("/", isLoggedIn, getAllProducts);
-router.get("/products/:id", isLoggedIn, getProduct);
+router.get("/:id", isLoggedIn, getProduct);
 
 router.post('/cart', isLoggedIn, addCart);
 router.get('/cart', isLoggedIn, (req,res)=>{
