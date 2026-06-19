@@ -1,6 +1,9 @@
 .featured {
     text-align: center;
     margin: 2rem 0;
+    a:hover img{
+        border: white solid 1px;
+    }
 }
 
 #featured-items {
