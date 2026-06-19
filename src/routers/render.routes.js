@@ -20,7 +20,10 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-    res.render('login.ejs')
+    const errorMessage = req.query.error;
+    res.render('login.ejs', {
+        errorMessage
+    });
 })
 
 router.get("/cart", isLoggedIn, (req,res)=>{

@@ -29,18 +29,18 @@ export const login = async (req, res) => {
     
     // All fields required
     if (!username || !password) {
-        return res.redirect("/login");
+        return res.redirect("/login?error=All Fields Required");
     }
 
     const user = await findUserByUsername(username);
     // Account does not exist
     if (!user) {
-        return res.redirect("/login");
+        return res.redirect("/login?error=Invalid Credentials");
     }
 
     // Invalid password 
     if (!await validatePassword(password, user.password)) {
-        return res.redirect("/login");
+        return res.redirect("/login?error=Invalid Credentials");
     }
 
     // Create a new session
