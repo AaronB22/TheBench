@@ -8,8 +8,12 @@ export const register = async (req, res) => {
         return res.redirect("/register");
     }
 
-    // Passwords dont' match
+    // Passwords dont match
     if (password !== confirm) {
+        return res.redirect("/register");
+    }
+
+    if (await findUserByUsername(username)) {
         return res.redirect("/register");
     }
 
@@ -25,7 +29,7 @@ export const login = async (req, res) => {
     
     // All fields required
     if (!username || !password) {
-        res.redirect("/login");
+        return res.redirect("/login");
     }
 
     const user = await findUserByUsername(username);
