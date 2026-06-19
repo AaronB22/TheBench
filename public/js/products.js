@@ -1,3 +1,5 @@
+
+
 //Get the type category from URL query params
 const params = new URLSearchParams(window.location.search);
 const selectedType = params.get('type');
@@ -37,6 +39,8 @@ const fetchProducts=async()=>{
         div.appendChild(p);
         
         btn.textContent = "Add to Cart";
+        btn.dataset.id = element.id
+        btn.addEventListener('click', addToCart);
         btn.classList.add('add-to-cart-btn');
         div.appendChild(btn);
 
@@ -81,3 +85,20 @@ const validateInputs=()=>{
 }
 minPrice.addEventListener('change',validateInputs);
 maxPrice.addEventListener('change',validateInputs);
+
+
+const addToCart=async(e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    const id = e.currentTarget.dataset.id;
+    const obj={
+        "productId":id
+    }
+    const addCart = await fetch("/api/cart", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ productId: id })
+    });
+
+    console.log(addCart)
+}

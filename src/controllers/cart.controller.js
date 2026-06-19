@@ -20,17 +20,15 @@ export const addCart=async(req,res)=>{
 }
 
 // eslint-disable-next-line consistent-return
-export const deleteCart=(req,res)=>{
-    try{
-        const id=req.body.productId;
-        const cart=req.session.cart;
-        cart.filter(el=>el.id===id);
-        req.session.cart = cart;
-       return res.status(200).json(req.session.cart );
+export const deleteCart = (req, res) => {
+    try {
+        const id = Number(req.params.id);
+        req.session.cart = req.session.cart.filter(el => el.id !== id);
+        return res.status(200).json(req.session.cart);
     }
-    catch(e){
+    catch (e) {
         res.status(500).json({
-            message: "sever failure"
+            message: "server failure"
         })
     }
 }

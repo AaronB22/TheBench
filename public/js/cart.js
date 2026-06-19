@@ -1,7 +1,7 @@
 
 
 const fetchCart = async () => {
-    const res = await fetch('/api/cart/test')
+    const res = await fetch('/api/cart/')
     const data = await res.json();
 
     buildCart(data);
@@ -10,7 +10,7 @@ const fetchCart = async () => {
 
 const deleteItem = async (id) => {
 
-    const res = await fetch(`/api/cart/test/${id}`, {
+    const res = await fetch(`/api/cart/${id}`, {
         method: "delete"
     })
     const data = await res.json();

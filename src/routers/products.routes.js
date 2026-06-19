@@ -12,7 +12,7 @@ router.get('/cart', (req,res)=>{
     res.status(200).json(req.session.cart);
 })
 
-router.delete('/cart',deleteCart)
+router.delete('/cart/:id',deleteCart)
 
 router.get('/cart/test',testCart)
 
