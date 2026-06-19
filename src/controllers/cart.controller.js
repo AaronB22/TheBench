@@ -22,6 +22,7 @@ export const addCart=async(req,res)=>{
 // eslint-disable-next-line consistent-return
 export const deleteCart = (req, res) => {
     try {
+        
         const id = Number(req.params.id);
         req.session.cart = req.session.cart.filter(el => el.id !== id);
         return res.status(200).json(req.session.cart);
@@ -30,6 +31,16 @@ export const deleteCart = (req, res) => {
         res.status(500).json({
             message: "server failure"
         })
+    }
+}
+// eslint-disable-next-line consistent-return
+export const clearCart = (req, res) => {
+    try {
+        req.session.cart = [];
+        return res.status(200).json({ message: "cart cleared" });
+    }
+    catch (e) {
+        res.status(500).json({ message: "server failure" });
     }
 }
 

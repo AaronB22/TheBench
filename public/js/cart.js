@@ -38,7 +38,9 @@ const buildCart = (data) => {
     const totalElement= document.getElementById("total");
     totalElement.textContent = `$${total.toFixed(2)}`
 }
-
-const purchase=()=>{
-    
+const purchase = async()=> {
+    await fetch('/api/cart', { method: 'delete' });
+    buildCart([]);
 }
+
+document.querySelector('.purchaseCard button').addEventListener('click', purchase);
