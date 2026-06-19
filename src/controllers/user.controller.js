@@ -59,6 +59,11 @@ export const logout = (req, res) => {
 // Authorization Middleware
 
 export const isLoggedIn = (req, res, next) => {
-    if (!req.user) res.redirect("/login"); 
-    else next();
+if (!req.user) {
+    if (req.originalUrl.startsWith('/api/'))  {
+        return res.status(401).json({ message: 'Unauthorized' });
+    }
+        return res.redirect("/login"); 
+     next();
+    }
 };
