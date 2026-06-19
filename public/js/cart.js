@@ -45,7 +45,7 @@ const buildCart = (data) => {
 }
 const purchase = async()=> {
     await fetch('/api/cart', { method: 'delete' });
-    buildCart([]);
+    location.href = '/confirmation';
 }
 
 document.querySelector('.purchaseCard button').addEventListener('click', purchase);

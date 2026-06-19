@@ -7,11 +7,11 @@ router.get("/", (req, res) => {
     res.render("home");
 });
 //go to product page
-router.get('/products', (req,res)=>{
+router.get('/products',isLoggedIn, (req,res)=>{
     res.render('product.ejs');
 });
 
-router.get('/products/:id', (req,res)=>{
+router.get('/products/:id', isLoggedIn, (req,res)=>{
     res.render('item.ejs');
 });
 
@@ -22,16 +22,17 @@ router.get('/register', (req, res) => {
 router.get('/login', (req, res) => {
     res.render('login.ejs')
 })
+router.get('/confirmation',isLoggedIn, (req, res) => {
+    res.render('confirm.ejs')
+})
 
-
-//true route
-// router.get("/cart", isLoggedIn, (req,res)=>{
-//     res.render('cart.ejs')
-// })
-
-//route just for testing
-router.get("/cart", (req, res) => {
+router.get("/cart", isLoggedIn, (req,res)=>{
     res.render('cart.ejs')
 })
+
+//route just for testing
+// router.get("/cart", (req, res) => {
+//     res.render('cart.ejs')
+// })
 
 export default router;
