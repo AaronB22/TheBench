@@ -54,14 +54,11 @@ export const login = async (req, res) => {
 };
 
 export const logout = (req, res) => {
-    // Destroy the session
-    console.log(req.session);
     // Redirect to /login
     req.session.destroy(() => res.redirect("/login"));
 };
 
 // Authorization Middleware
-
 export const isLoggedIn = (req, res, next) => {
     if (!req.user) {
         if (req.originalUrl.startsWith('/api/'))  {
