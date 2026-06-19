@@ -25,6 +25,7 @@ const fetchProducts=async()=>{
         const img = document.createElement('img');
         const h4 = document.createElement('h4');
         const p = document.createElement('p');
+        const btn= document.createElement('button');
 
         img.alt = "photo";
         div.appendChild(img);
@@ -34,9 +35,14 @@ const fetchProducts=async()=>{
 
         p.textContent = "$"+element.price;
         div.appendChild(p);
+        
+        btn.textContent = "Add to Cart";
+        btn.classList.add('add-to-cart-btn');
+        div.appendChild(btn);
 
         anchor.href = "/products/"+element.id;
         anchor.appendChild(div);
+
 
         itemsSection.appendChild(anchor);
     });

@@ -38,3 +38,7 @@ const buildCart = (data) => {
     const totalElement= document.getElementById("total");
     totalElement.textContent = `$${total.toFixed(2)}`
 }
+
+const purchase=()=>{
+    
+}
