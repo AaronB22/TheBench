@@ -7,11 +7,11 @@ router.get("/", (req, res) => {
     res.render("home");
 });
 //go to product page
-router.get('/products', isLoggedIn, (req,res)=>{
+router.get('/products', (req,res)=>{
     res.render('product.ejs');
 });
 
-router.get('/products/:id', isLoggedIn, (req,res)=>{
+router.get('/products/:id', (req,res)=>{
     res.render('item.ejs');
 });
 
