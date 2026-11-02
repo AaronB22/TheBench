@@ -9,6 +9,12 @@
 
 Server-Side Web Development Project
 
+## Demo 
+
+https://github.com/user-attachments/assets/fd60aa40-5823-413b-8c35-69aa6cffc557
+
+
+
 ## Overview
 
 The Bench is a web-app storefront providing affordable sports gear. This project is intended to demonstrate a full-stack web application. Features of this project include:
